@@ -1,7 +1,7 @@
-require 'minitest/autorun'
+require_relative 'test_helper'
 require 'chess/board'
 
-class StartPositionTest < MiniTest::Unit::TestCase
+class StartPositionTest < TestCase
 
   def setup
     @board = Chess::Board.new
@@ -68,9 +68,4 @@ class StartPositionTest < MiniTest::Unit::TestCase
       assert row.all? {|piece| piece.color == :black }
     end
   end
-
-  private
-    def assert_piece_at(type, position)
-      assert_instance_of "Chess::Pieces::#{type.to_s.camelize}".constantize, @board.piece_at(position)
-    end
 end

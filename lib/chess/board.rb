@@ -14,16 +14,10 @@ module Chess
       BOARD_SIZE.times.map { 'pawn' }
     ]
 
-    attr_reader :squares
+    attr_reader :squares, :captures
 
     def initialize
       reset_board
-    end
-
-    def set_piece_at(piece, position)
-      coordinates_for(position) do |x, y|
-        @squares[y][x] = piece
-      end
     end
 
     def piece_at(position)
@@ -32,19 +26,40 @@ module Chess
       end
     end
 
-    def move_piece(form, to)
+    def piece_at?(position)
+      !!piece_at(position)
+    end
+
+    def move_piece(from, to)
+      if piece = remove_piece_at(from)
+        @captures << remove_piece_at(to) if piece_at?(to)
+        set_piece_at(piece, to)
+      end
+    rescue ArgumentError => e
+      set_piece_at(piece, from)
+      raise e
     end
 
     def remove_piece_at(position)
+      piece_at(position).tap do
+        set_piece_at nil, position
+      end
     end
 
     def reset_board
+      @captures = []
       initialize_squares
       initialize_white_pieces
       initialize_black_pieces
     end
 
     private
+
+      def set_piece_at(piece, position)
+        coordinates_for(position) do |x, y|
+          @squares[y][x] = piece
+        end
+      end
 
       def initialize_squares
         @squares = Array.new(BOARD_SIZE) { Array.new(BOARD_SIZE) }
@@ -70,9 +85,13 @@ module Chess
       end
 
       def coordinates_for(position)
-        raise ArgumentError unless position =~ VALID_POSITION_REGEX
+        raise ArgumentError unless valid_position?(position)
 
-        yield position[0].ord - ASCII_CODE_A, position[1].to_i - 1
+        yield char_to_coordinate(position[0]), position[1].to_i - 1
+      end
+
+      def char_to_coordinate(char)
+        char.ord - ASCII_CODE_A
       end
 
       def build_piece(piece_type, color)
@@ -81,6 +100,10 @@ module Chess
 
       def columns_for_row(row_index)
         COLUMNS.map {|column| column + (row_index + 1).to_s}
+      end
+
+      def valid_position?(position)
+        position =~ VALID_POSITION_REGEX
       end
   end
 end

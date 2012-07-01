@@ -1,7 +1,7 @@
-require 'minitest/autorun'
+require_relative 'test_helper'
 require 'chess/board'
 
-class BoardTest < MiniTest::Unit::TestCase
+class BoardTest < TestCase
 
   def setup
     @board = Chess::Board.new
@@ -23,7 +23,7 @@ class BoardTest < MiniTest::Unit::TestCase
 
   def test_set_piece_at_position
     rook = Chess::Pieces::Rook.new(:white)
-    @board.set_piece_at(rook, 'c3')
+    @board.send :set_piece_at, rook, 'c3'
 
     assert_equal rook, @board.squares[2][2]
   end
@@ -37,6 +37,14 @@ class BoardTest < MiniTest::Unit::TestCase
 
   def test_get_piece_at_from_blank_square
     assert_nil @board.piece_at('c3')
+  end
+
+  def test_false_piece_at?
+    assert_equal false, @board.piece_at?('c3')
+  end
+
+  def test_true_piece_at?
+    assert_equal true, @board.piece_at?('a1')
   end
 
   def test_get_piece_at_position_out_of_range_x
@@ -55,5 +63,9 @@ class BoardTest < MiniTest::Unit::TestCase
     assert_raises ArgumentError do
       @board.piece_at('gw')
     end
+  end
+
+  def test_remove_piece_returns_piece
+    assert_instance_of Chess::Pieces::Pawn, @board.remove_piece_at('a2')
   end
 end

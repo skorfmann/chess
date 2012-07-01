@@ -1,7 +1,7 @@
-require 'minitest/autorun'
+require_relative 'test_helper'
 require 'chess/pieces/piece'
 
-class PieceTest < MiniTest::Unit::TestCase
+class PieceTest < TestCase
 
   def test_piece_is_initializable_with_white
     piece = Chess::Pieces::Piece.new(:white)
