@@ -3,8 +3,6 @@ require 'chess/board'
 
 class StartPositionTest < MiniTest::Unit::TestCase
 
-  PIECES = %w(rook knight bishop queen king bishop knight rook)
-
   def setup
     @board = Chess::Board.new
   end
@@ -20,6 +18,17 @@ class StartPositionTest < MiniTest::Unit::TestCase
     assert_piece_at :rook, 'h1'
   end
 
+  def test_pawn_start_positions_white
+    assert_piece_at :pawn, 'a2'
+    assert_piece_at :pawn, 'b2'
+    assert_piece_at :pawn, 'c2'
+    assert_piece_at :pawn, 'd2'
+    assert_piece_at :pawn, 'e2'
+    assert_piece_at :pawn, 'f2'
+    assert_piece_at :pawn, 'g2'
+    assert_piece_at :pawn, 'h2'
+  end
+
   def test_start_positions_black
     assert_piece_at :rook, 'a8'
     assert_piece_at :knight, 'b8'
@@ -29,6 +38,23 @@ class StartPositionTest < MiniTest::Unit::TestCase
     assert_piece_at :bishop, 'f8'
     assert_piece_at :knight, 'g8'
     assert_piece_at :rook, 'h8'
+  end
+
+  def test_pawn_start_positions_black
+    assert_piece_at :pawn, 'a7'
+    assert_piece_at :pawn, 'b7'
+    assert_piece_at :pawn, 'c7'
+    assert_piece_at :pawn, 'd7'
+    assert_piece_at :pawn, 'e7'
+    assert_piece_at :pawn, 'f7'
+    assert_piece_at :pawn, 'g7'
+    assert_piece_at :pawn, 'h7'
+  end
+
+  def test_middle_rows_should_be_emtpy
+    @board.squares[2..5].each do |row|
+      row.all? {|square| assert_nil square}
+    end
   end
 
   private
