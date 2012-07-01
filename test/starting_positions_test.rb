@@ -53,19 +53,19 @@ class StartPositionTest < MiniTest::Unit::TestCase
 
   def test_middle_rows_should_be_emtpy
     @board.squares[2..5].each do |row|
-      row.all? {|square| assert_nil square}
+      row.each {|square| assert_nil square }
     end
   end
 
   def test_pieces_are_white
     @board.squares[0..1].each do |row|
-      row.all? {|piece| piece.color == :white }
+      assert row.all? {|piece| piece.color == :white }
     end
   end
 
   def test_pieces_are_black
     @board.squares[6..7].each do |row|
-      row.all? {|piece| piece.color == :black }
+      assert row.all? {|piece| piece.color == :black }
     end
   end
 
