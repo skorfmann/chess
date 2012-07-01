@@ -57,6 +57,18 @@ class StartPositionTest < MiniTest::Unit::TestCase
     end
   end
 
+  def test_pieces_are_white
+    @board.squares[0..1].each do |row|
+      row.all? {|piece| piece.color == :white }
+    end
+  end
+
+  def test_pieces_are_black
+    @board.squares[6..7].each do |row|
+      row.all? {|piece| piece.color == :black }
+    end
+  end
+
   private
     def assert_piece_at(type, position)
       assert_instance_of "Chess::Pieces::#{type.to_s.camelize}".constantize, @board.piece_at(position)
