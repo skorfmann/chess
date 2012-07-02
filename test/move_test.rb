@@ -8,12 +8,12 @@ class MoveTest < TestCase
   end
 
   def test_move_piece_to_new_position
-    assert_piece_at :pawn, 'a2'
+    assert_piece_at @board, :pawn, 'a2'
     assert_nil @board.piece_at('a4')
 
     @board.move_piece 'a2', 'a4'
 
-    assert_piece_at :pawn, 'a4'
+    assert_piece_at @board, :pawn, 'a4'
     assert_nil @board.piece_at('a2')
   end
 
@@ -22,7 +22,7 @@ class MoveTest < TestCase
       @board.move_piece 'a2', 'i4'
     end
 
-    assert_piece_at :pawn, 'a2'
+    assert_piece_at @board, :pawn, 'a2'
   end
 
   def test_not_move_with_other_invalid_position
@@ -32,12 +32,12 @@ class MoveTest < TestCase
   end
 
   def test_should_handle_blank_square
-    assert_piece_at :pawn, 'a7'
+    assert_piece_at @board, :pawn, 'a7'
     assert_nil @board.piece_at('a3')
 
     assert !@board.move_piece('a3', 'a7')
 
-    assert_piece_at :pawn, 'a7'
+    assert_piece_at @board, :pawn, 'a7'
     assert_nil @board.piece_at('a3')
     assert_equal [], @board.captures
   end
@@ -55,10 +55,10 @@ class MoveTest < TestCase
   private
 
     def move_piece(type, from, to)
-      assert_piece_at :pawn, 'a2'
+      assert_piece_at @board, :pawn, 'a2'
       assert_nil @board.piece_at('a4')
 
-      assert_piece_at :pawn, 'a4'
+      assert_piece_at @board, :pawn, 'a4'
       assert_nil @board.piece_at('a2')
     end
 end

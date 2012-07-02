@@ -8,47 +8,47 @@ class StartPositionTest < TestCase
   end
 
   def test_start_positions_white
-    assert_piece_at :rook, 'a1'
-    assert_piece_at :knight, 'b1'
-    assert_piece_at :bishop, 'c1'
-    assert_piece_at :queen, 'd1'
-    assert_piece_at :king, 'e1'
-    assert_piece_at :bishop, 'f1'
-    assert_piece_at :knight, 'g1'
-    assert_piece_at :rook, 'h1'
+    assert_piece_at @board, :rook, 'a1'
+    assert_piece_at @board, :knight, 'b1'
+    assert_piece_at @board, :bishop, 'c1'
+    assert_piece_at @board, :queen, 'd1'
+    assert_piece_at @board, :king, 'e1'
+    assert_piece_at @board, :bishop, 'f1'
+    assert_piece_at @board, :knight, 'g1'
+    assert_piece_at @board, :rook, 'h1'
   end
 
   def test_pawn_start_positions_white
-    assert_piece_at :pawn, 'a2'
-    assert_piece_at :pawn, 'b2'
-    assert_piece_at :pawn, 'c2'
-    assert_piece_at :pawn, 'd2'
-    assert_piece_at :pawn, 'e2'
-    assert_piece_at :pawn, 'f2'
-    assert_piece_at :pawn, 'g2'
-    assert_piece_at :pawn, 'h2'
+    assert_piece_at @board, :pawn, 'a2'
+    assert_piece_at @board, :pawn, 'b2'
+    assert_piece_at @board, :pawn, 'c2'
+    assert_piece_at @board, :pawn, 'd2'
+    assert_piece_at @board, :pawn, 'e2'
+    assert_piece_at @board, :pawn, 'f2'
+    assert_piece_at @board, :pawn, 'g2'
+    assert_piece_at @board, :pawn, 'h2'
   end
 
   def test_start_positions_black
-    assert_piece_at :rook, 'a8'
-    assert_piece_at :knight, 'b8'
-    assert_piece_at :bishop, 'c8'
-    assert_piece_at :queen, 'd8'
-    assert_piece_at :king, 'e8'
-    assert_piece_at :bishop, 'f8'
-    assert_piece_at :knight, 'g8'
-    assert_piece_at :rook, 'h8'
+    assert_piece_at @board, :rook, 'a8'
+    assert_piece_at @board, :knight, 'b8'
+    assert_piece_at @board, :bishop, 'c8'
+    assert_piece_at @board, :queen, 'd8'
+    assert_piece_at @board, :king, 'e8'
+    assert_piece_at @board, :bishop, 'f8'
+    assert_piece_at @board, :knight, 'g8'
+    assert_piece_at @board, :rook, 'h8'
   end
 
   def test_pawn_start_positions_black
-    assert_piece_at :pawn, 'a7'
-    assert_piece_at :pawn, 'b7'
-    assert_piece_at :pawn, 'c7'
-    assert_piece_at :pawn, 'd7'
-    assert_piece_at :pawn, 'e7'
-    assert_piece_at :pawn, 'f7'
-    assert_piece_at :pawn, 'g7'
-    assert_piece_at :pawn, 'h7'
+    assert_piece_at @board, :pawn, 'a7'
+    assert_piece_at @board, :pawn, 'b7'
+    assert_piece_at @board, :pawn, 'c7'
+    assert_piece_at @board, :pawn, 'd7'
+    assert_piece_at @board, :pawn, 'e7'
+    assert_piece_at @board, :pawn, 'f7'
+    assert_piece_at @board, :pawn, 'g7'
+    assert_piece_at @board, :pawn, 'h7'
   end
 
   def test_middle_rows_should_be_emtpy
