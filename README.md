@@ -2,9 +2,11 @@
 
 ## Getting started
 
-  bundle install
-  bundle exec rake
-  open doc/index.html
+```
+bundle install
+bundle exec rake
+open doc/index.html
+```
 
 Note: only tested under macosx and ruby 1.9.3
 
