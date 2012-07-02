@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Chess::Board - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/chess/board.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-move_piece">#move_piece</a>
+    
+    <li><a href="#method-i-piece_at">#piece_at</a>
+    
+    <li><a href="#method-i-piece_at-3F">#piece_at?</a>
+    
+    <li><a href="#method-i-remove_piece_at">#remove_piece_at</a>
+    
+    <li><a href="#method-i-reset_board">#reset_board</a>
+    
+    <li><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Chess.html">Chess</a>
+  
+    <li><a href="../Chess/Board.html">Chess::Board</a>
+  
+    <li><a href="../Chess/Pieces.html">Chess::Pieces</a>
+  
+    <li><a href="../Chess/Pieces/Bishop.html">Chess::Pieces::Bishop</a>
+  
+    <li><a href="../Chess/Pieces/King.html">Chess::Pieces::King</a>
+  
+    <li><a href="../Chess/Pieces/Knight.html">Chess::Pieces::Knight</a>
+  
+    <li><a href="../Chess/Pieces/Pawn.html">Chess::Pieces::Pawn</a>
+  
+    <li><a href="../Chess/Pieces/Piece.html">Chess::Pieces::Piece</a>
+  
+    <li><a href="../Chess/Pieces/Queen.html">Chess::Pieces::Queen</a>
+  
+    <li><a href="../Chess/Pieces/Rook.html">Chess::Pieces::Rook</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Chess::Board</h1>
+
+  <div id="description" class="description">
+    
+<p>This class represents a chess board and comes with an api to handle the
+state of a game by querying, moving and resetting pieces.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="ASCII_CODE_A">ASCII_CODE_A
+        
+        <dd class="description">
+        
+      
+        <dt id="BOARD_SIZE">BOARD_SIZE
+        
+        <dd class="description">
+        
+      
+        <dt id="COLUMNS">COLUMNS
+        
+        <dd class="description">
+        
+      
+        <dt id="START_ORDER">START_ORDER
+        
+        <dd class="description">
+        
+      
+        <dt id="VALID_POSITION_REGEX">VALID_POSITION_REGEX
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-captures" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">captures</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-squares" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">squares</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/chess/board.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-identifier">reset_board</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-move_piece" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">move_piece</span><span
+            class="method-args">(from, to)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Moving a piece from one position to another. When a piece is present on the
+new position, the piece will be removed and kept as a capture for future
+reference. Returns the moved piece or nil, when the original position
+referenced a blank square.</p>
+
+<p>There are no checks performed, if the intended move is allowed or possible.</p>
+
+<p>Raises an ArgumentError when one of the positions is invalid and the state
+of the board remains unchanged.</p>
+
+<p>Example:</p>
+
+<pre>board = Chess::Board.new
+board.move_piece('a2', 'a4') # -&gt; moved_piece
+board.move_piece('b3', 'b4') # -&gt; nil
+board.move_piece('z9', 'b3') # -&gt; raises ArgumentError
+
+# captures
+board.move_piece('b2', 'b7') # -&gt; moved_piece
+board.captures # -&gt; [piece_from_b7]</pre>
+          
+
+          
+          <div class="method-source-code" id="move_piece-source">
+            <pre><span class="ruby-comment"># File lib/chess/board.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">move_piece</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">piece</span> = <span class="ruby-identifier">remove_piece_at</span>(<span class="ruby-identifier">from</span>)
+    <span class="ruby-ivar">@captures</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">remove_piece_at</span>(<span class="ruby-identifier">to</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">piece_at?</span>(<span class="ruby-identifier">to</span>)
+    <span class="ruby-identifier">set_piece_at</span>(<span class="ruby-identifier">piece</span>, <span class="ruby-identifier">to</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">set_piece_at</span>(<span class="ruby-identifier">piece</span>, <span class="ruby-identifier">from</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">to_s</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">IRB</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- move_piece-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- move_piece-method -->
+
+    
+      <div id="method-i-piece_at" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">piece_at</span><span
+            class="method-args">(position)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the piece located at specified position or nil, if the position is
+blank.</p>
+
+<p>Raises an ArgumentError when the position is invalid.</p>
+
+<p>Example:</p>
+
+<pre>board = Chess::Board.new
+board.piece_at('a1') # -&gt; piece
+board.piece_at('a5') # -&gt; nil
+board.piece_at('z9') # -&gt; raises ArgumentError</pre>
+          
+
+          
+          <div class="method-source-code" id="piece_at-source">
+            <pre><span class="ruby-comment"># File lib/chess/board.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">piece_at</span>(<span class="ruby-identifier">position</span>)
+  <span class="ruby-identifier">coordinates_for</span>(<span class="ruby-identifier">position</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@squares</span>[<span class="ruby-identifier">y</span>][<span class="ruby-identifier">x</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- piece_at-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- piece_at-method -->
+
+    
+      <div id="method-i-piece_at-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">piece_at?</span><span
+            class="method-args">(position)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Query a specified position if a any piece is present.Returns true or false.</p>
+
+<p>Raises an ArgumentError when the position is invalid.</p>
+
+<p>Example:</p>
+
+<pre>board = Chess::Board.new
+board.piece_at?('a1') # -&gt; true
+board.piece_at?('a5') # -&gt; false
+board.piece_at?('z9') # -&gt; raises ArgumentError</pre>
+          
+
+          
+          <div class="method-source-code" id="piece_at-3F-source">
+            <pre><span class="ruby-comment"># File lib/chess/board.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">piece_at?</span>(<span class="ruby-identifier">position</span>)
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-identifier">piece_at</span>(<span class="ruby-identifier">position</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- piece_at-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- piece_at-3F-method -->
+
+    
+      <div id="method-i-remove_piece_at" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_piece_at</span><span
+            class="method-args">(position)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Removes a piece from the specified position and returns the piece or nil,
+if the specfied position is blank.</p>
+
+<p>Raises an ArgumentError when one of the positions is invalid and the state
+of the board remains unchanged.</p>
+
+<p>Example:</p>
+
+<pre>board = Chess::Board.new
+board.remove_piece_at('a2') # -&gt; removed_piece
+board.remove_piece_at('b3') # -&gt; nil
+board.remove_piece_at('z9') # -&gt; raises ArgumentError</pre>
+          
+
+          
+          <div class="method-source-code" id="remove_piece_at-source">
+            <pre><span class="ruby-comment"># File lib/chess/board.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_piece_at</span>(<span class="ruby-identifier">position</span>)
+  <span class="ruby-identifier">piece_at</span>(<span class="ruby-identifier">position</span>).<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">set_piece_at</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">position</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- remove_piece_at-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- remove_piece_at-method -->
+
+    
+      <div id="method-i-reset_board" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset_board</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Reset the board for a new game.</p>
+          
+
+          
+          <div class="method-source-code" id="reset_board-source">
+            <pre><span class="ruby-comment"># File lib/chess/board.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset_board</span>
+  <span class="ruby-ivar">@captures</span> = []
+  <span class="ruby-identifier">initialize_squares</span>
+  <span class="ruby-identifier">initialize_white_pieces</span>
+  <span class="ruby-identifier">initialize_black_pieces</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- reset_board-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- reset_board-method -->
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print the state of the board as ASCII-Art</p>
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/chess/board.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-ivar">@squares</span>.<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;\u00B7&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">to_s</span> }.<span class="ruby-identifier">unshift</span>(<span class="ruby-constant">BOARD_SIZE</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">index</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">' '</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">'  '</span> <span class="ruby-operator">+</span> <span class="ruby-constant">COLUMNS</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">' '</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">captures</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">'-'</span> * <span class="ruby-value">20</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Captures: #{captures.map(&amp;:to_s) * ' '}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_s-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_s-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

@@ -1,5 +1,5 @@
-module Chess
-  module Pieces
+module Chess #:nodoc:
+  module Pieces #:nodoc:
     class Piece
 
       VALID_COLORS = [:white, :black]
@@ -10,6 +10,14 @@ module Chess
         raise ArgumentError unless VALID_COLORS.include?(color)
 
         @color = color
+      end
+
+      def black?
+        color == :black
+      end
+
+      def white?
+        !black?
       end
     end
   end

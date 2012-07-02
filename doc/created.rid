@@ -1,0 +1,11 @@
+Mon, 02 Jul 2012 12:59:52 +1000
+README.rdoc	Mon, 02 Jul 2012 11:55:16 +1000
+lib/chess/board.rb	Mon, 02 Jul 2012 12:54:27 +1000
+lib/chess/pieces/bishop.rb	Mon, 02 Jul 2012 12:45:05 +1000
+lib/chess/pieces/king.rb	Mon, 02 Jul 2012 12:45:09 +1000
+lib/chess/pieces/knight.rb	Mon, 02 Jul 2012 12:45:14 +1000
+lib/chess/pieces/pawn.rb	Mon, 02 Jul 2012 12:45:19 +1000
+lib/chess/pieces/piece.rb	Mon, 02 Jul 2012 12:46:13 +1000
+lib/chess/pieces/queen.rb	Mon, 02 Jul 2012 12:45:25 +1000
+lib/chess/pieces/rook.rb	Mon, 02 Jul 2012 12:46:16 +1000
+lib/chess/pieces.rb	Sun, 01 Jul 2012 16:51:19 +1000

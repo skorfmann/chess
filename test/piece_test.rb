@@ -20,4 +20,18 @@ class PieceTest < TestCase
       Chess::Pieces::Piece.new(:pink)
     end
   end
+
+  def test_piece_is_black?
+    piece = Chess::Pieces::Piece.new(:black)
+
+    assert piece.black?
+    assert !piece.white?
+  end
+
+  def test_piece_is_white?
+    piece = Chess::Pieces::Piece.new(:white)
+
+    assert piece.white?
+    assert !piece.black?
+  end
 end
