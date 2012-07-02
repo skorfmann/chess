@@ -88,7 +88,7 @@ module Chess #:nodoc:
       to_s if defined?(IRB)
     end
 
-   ##
+    ##
     # Removes a piece from the specified position and returns the piece or nil,
     # if the specfied position is blank.
     #
